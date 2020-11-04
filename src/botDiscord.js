@@ -81,14 +81,22 @@ client.on(
 
     if (command === 'gif') {
       const messageForGifSearch = message.content.replace('!gif', '');
-      giphy
-        .random({
+
+      giphy.random(
+        {
           tag: `${messageForGifSearch}`,
           rating: 'g',
-        })
-        .then((res) => {
-          message.reply('Toma ai animal', { files: [`${res.data.image_url}`] });
-        });
+        },
+        async (err, res) => {
+          try {
+            await message.reply('Toma ai animal', {
+              files: [`${res.data.image_url}`],
+            });
+          } catch (err) {
+            console.log(err);
+          }
+        },
+      );
     }
 
     if (command === 'comandos') {
