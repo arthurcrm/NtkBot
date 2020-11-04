@@ -1,7 +1,6 @@
 require('dotenv').config();
 
-const { log } = require('console');
-const { Client, Guild } = require('discord.js');
+const { Client } = require('discord.js');
 const DisTube = require('distube');
 
 const client = new Client();
@@ -62,16 +61,16 @@ client.on(
       .split(/ +/g);
 
     const command = args.shift();
+
     if (command === 'comandos') {
       message.channel.send(`
       Comandos de Musica
-     \
+      **
         !play
         !stop
         !skip
         !queue
-        !volume
-      \ `);
+      **. `);
     }
 
     if (command === 'play') distube.play(message, args.join(' '));
