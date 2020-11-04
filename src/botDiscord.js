@@ -62,6 +62,17 @@ client.on(
 
     const command = args.shift();
 
+    if (command === 'comandos') {
+      message.channel.send(`
+      Comandos de Musica
+      **
+        !play
+        !stop
+        !skip
+        !queue
+      **. `);
+    }
+
     if (command === 'play') distube.play(message, args.join(' '));
 
     if (command === 'skip') distube.skip(message);
@@ -69,7 +80,6 @@ client.on(
     if (command === 'volume') {
       distube.setVolume(message, args.join(' '));
       message.channel.send(`Volume definido para ${message}`);
-      
     }
     if (['repeat', 'loop'].includes(command))
       distube.setRepeatMode(message, parseInt(args[0]));
