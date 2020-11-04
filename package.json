@@ -1,0 +1,22 @@
+{
+  "name": "discordServer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/NtkArt/discordServer.git",
+  "author": "Arthur Carneiro <arthur.carneirontk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/welcomeBot.js",
+    "dev": "nodemon ./src/botDiscord.js"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "discord.js": "^12.4.1",
+    "distube": "^2.7.0",
+    "dotenv": "^8.2.0",
+    "ffmpeg-static": "^4.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
