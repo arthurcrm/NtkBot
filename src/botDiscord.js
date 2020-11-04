@@ -36,51 +36,65 @@ const neverPlaysThisSongs = [
   'REDVEVELT',
 ];
 
-client.on('message', async (message) => {
-  const toUpperMsg = message.content.toUpperCase();
-  if (contains(toUpperMsg, neverPlaysThisSongs)) {
-    message.channel.send('TA PROIBIDO KAPOPI PORRA');
-    return;
-  }
-  if (message.author.bot) return;
-  if (!message.content.startsWith(config.prefix)) return;
+client.on(
+  'message',
+  async (message) => {
+    const upperMsg = message.content.toUpperCase();
 
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    if (upperMsg.includes('GUILHERME')) {
+      message.reply('esse ai tem probleminha na cabeca');
+    }
+  },
 
-  const command = args.shift();
+  client.on('message', async (message) => {
+    const toUpperMsg = message.content.toUpperCase();
+    if (contains(toUpperMsg, neverPlaysThisSongs)) {
+      message.channel.send('TA PROIBIDO KAPOPI PORRA');
+      return;
+    }
+    if (message.author.bot) return;
+    if (!message.content.startsWith(config.prefix)) return;
 
-  if (command == 'play') distube.play(message, args.join(' '));
+    const args = message.content
+      .slice(config.prefix.length)
+      .trim()
+      .split(/ +/g);
 
-  if (['repeat', 'loop'].includes(command))
-    distube.setRepeatMode(message, parseInt(args[0]));
+    const command = args.shift();
 
-  if (command == 'stop') {
-    distube.stop(message);
-    message.channel.send('Parei essa porra!');
-  }
+    if (command == 'play') distube.play(message, args.join(' '));
 
-  if (command == 'queue') {
-    let queue = distube.getQueue(message);
-    message.channel.send(
-      'Fila atual:\n' +
-        queue.songs
-          .map(
-            (song, id) =>
-              `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``,
-          )
-          .join('\n'),
-    );
-  }
+    if (['repeat', 'loop'].includes(command))
+      distube.setRepeatMode(message, parseInt(args[0]));
 
-  if (
-    [`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(
-      command,
-    )
-  ) {
-    let filter = distube.setFilter(message, command);
-    message.channel.send('Filtro da fila: ' + (filter || 'Off'));
-  }
-});
+    if (command == 'stop') {
+      distube.stop(message);
+      message.channel.send('Parei essa porra!');
+    }
+
+    if (command == 'queue') {
+      let queue = distube.getQueue(message);
+      message.channel.send(
+        'Fila atual:\n' +
+          queue.songs
+            .map(
+              (song, id) =>
+                `**${id + 1}**. ${song.name} - \`${song.formattedDuration}\``,
+            )
+            .join('\n'),
+      );
+    }
+
+    if (
+      [`3d`, `bassboost`, `echo`, `karaoke`, `nightcore`, `vaporwave`].includes(
+        command,
+      )
+    ) {
+      let filter = distube.setFilter(message, command);
+      message.channel.send('Filtro da fila: ' + (filter || 'Off'));
+    }
+  }),
+);
 
 // Queue status template
 const status = (queue) =>
