@@ -95,7 +95,7 @@ client.on(
       // let required = Math.ceil(userCount / 2);
 
       // if (votes >= required) {
-      //   return distube.skip(message);
+      distube.skip(message);
       // } else {
       //   message.channel.send('Voto adicionado');
       // }
