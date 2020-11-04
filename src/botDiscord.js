@@ -62,17 +62,24 @@ client.on(
 
     const command = args.shift();
 
-    if (command == 'play') distube.play(message, args.join(' '));
+    if (command === 'play') distube.play(message, args.join(' '));
 
+    if (command === 'skip') distube.skip(message);
+
+    if (command === 'volume') {
+      distube.setVolume(message, args.join(' '));
+      message.channel.send(`Volume definido para ${message}`);
+      
+    }
     if (['repeat', 'loop'].includes(command))
       distube.setRepeatMode(message, parseInt(args[0]));
 
-    if (command == 'stop') {
+    if (command === 'stop') {
       distube.stop(message);
       message.channel.send('Parei essa porra!');
     }
 
-    if (command == 'queue') {
+    if (command === 'queue') {
       let queue = distube.getQueue(message);
       message.channel.send(
         'Fila atual:\n' +
