@@ -70,8 +70,17 @@ client.on(
         !stop
         !skip
         !queue
-      **. `);
+      **
+      
+      Comandos Troll
+      **
+        !orochifag
+      **
+      `);
     }
+
+    if (command === 'orochifag')
+      message.reply('<3', { files: 'https://i.imgur.com/csAyE4T.png' });
 
     if (command === 'play') distube.play(message, args.join(' '));
 
