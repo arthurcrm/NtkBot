@@ -1,5 +1,3 @@
-
-
 # NtkBot
 
 ### Features
@@ -33,7 +31,7 @@
 - Discord.js
 - Node 12.x
 - Docker
-- Heroku
+- Heroku CLI
 - DisTube
 
 ---
