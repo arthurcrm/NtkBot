@@ -14,7 +14,9 @@
     "discord.js": "^12.4.1",
     "distube": "^2.7.0",
     "dotenv": "^8.2.0",
-    "ffmpeg-static": "^4.2.7"
+    "ffmpeg-static": "^4.2.7",
+    "giphy-api": "^2.0.1",
+    "giphy-js-sdk-core": "^1.0.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

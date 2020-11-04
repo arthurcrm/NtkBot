@@ -3,6 +3,7 @@ require('dotenv').config();
 const { Client } = require('discord.js');
 const DisTube = require('distube');
 
+const giphy = require('giphy-api')(process.env.GIPHY_TOKEN);
 const client = new Client();
 config = {
   prefix: '!',
@@ -43,8 +44,12 @@ client.on(
 
     if (upperMsg.includes('GUILHERME')) {
       message.reply('esse ai tem probleminha na cabeca');
+    } else if (
+      upperMsg.includes('GUILHERME') &&
+      message.author.username === 'Guilherme013'
+    ) {
+      message.reply('cala a boca guilherme');
     }
-
     if (upperMsg.includes('BRENNO')) {
       message.reply(
         'nao fala dele, bixo ja eh maltratado pela feiura tadinho :cry:',
@@ -73,6 +78,18 @@ client.on(
       .split(/ +/g);
 
     const command = args.shift();
+
+    if (command === 'gif') {
+      const messageForGifSearch = message.content.replace('!gif', '');
+      giphy
+        .random({
+          tag: `${messageForGifSearch}`,
+          rating: 'g',
+        })
+        .then((res) => {
+          message.reply('Toma ai animal', { files: [`${res.data.image_url}`] });
+        });
+    }
 
     if (command === 'comandos') {
       message.channel.send(`
