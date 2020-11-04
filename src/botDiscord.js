@@ -80,7 +80,7 @@ client.on(
     }
 
     if (command === 'orochifag')
-      message.reply('<3', { files: 'https://i.imgur.com/csAyE4T.png' });
+      message.reply(':heart:', { files: ['https://i.imgur.com/csAyE4T.png'] });
 
     if (command === 'play') distube.play(message, args.join(' '));
 
