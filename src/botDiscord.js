@@ -110,6 +110,11 @@ client.on(
         !skip
         !queue
       **
+
+      Comandos Gifs
+      **
+        !gif <-nome do gif->
+      **
       
       Comandos Troll
       **

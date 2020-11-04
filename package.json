@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./src/botDiscord.js",
-    "dev": "nodemon ./src/botDiscord.js"
+    "dev": "nodemon ./src/botDiscord.js",
+    "build": "heroku container:push web -a discord-ntkart && heroku container:release web -a discord-ntkart"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
