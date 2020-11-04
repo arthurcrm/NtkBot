@@ -65,12 +65,13 @@ client.on(
     if (command === 'comandos') {
       message.channel.send(`
       Comandos de Musica
-      **
+settingstting      \
         !play
         !stop
         !skip
         !queue
-      **. `);
+        !volume
+      \ `);
     }
 
     if (command === 'play') distube.play(message, args.join(' '));
