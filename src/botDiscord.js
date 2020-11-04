@@ -88,7 +88,9 @@ client.on(
           rating: 'g',
         },
         async (err, res) => {
+         
           try {
+            console.log(res.data);
             await message.reply('Toma ai animal', {
               files: [`${res.data.image_url}`],
             });

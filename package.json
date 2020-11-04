@@ -6,7 +6,7 @@
   "author": "Arthur Carneiro <arthur.carneirontk@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./src/welcomeBot.js",
+    "start": "node ./src/botDiscord.js",
     "dev": "nodemon ./src/botDiscord.js"
   },
   "dependencies": {
