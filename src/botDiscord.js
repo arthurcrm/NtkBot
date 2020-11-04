@@ -44,6 +44,18 @@ client.on(
     if (upperMsg.includes('GUILHERME')) {
       message.reply('esse ai tem probleminha na cabeca');
     }
+
+    if (upperMsg.includes('BRENNO')) {
+      message.reply(
+        'nao fala dele, bixo ja eh maltratado pela feiura tadinho :cry:',
+      );
+    }
+
+    if (
+      message.author.username === 'almeida_brenno2' &&
+      upperMsg.includes('PRETO')
+    )
+      message.member.kick('Vai seu racista otario');
   },
 
   client.on('message', async (message) => {
