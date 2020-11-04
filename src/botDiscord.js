@@ -85,21 +85,20 @@ client.on(
     if (command === 'play') distube.play(message, args.join(' '));
 
     if (command === 'skip') {
-      let votes = 0;
       if (message.member.voice.channel !== message.guild.me.voice.channel)
         return message.channel.send(
           'Voce nao ta no mesmo canal de voz do bot de musica.',
         );
 
-      const userCount = message.member.voice.channel.members.size;
+      // const userCount = message.member.voice.channel.members.size;
 
-      let required = Math.ceil(userCount / 2);
+      // let required = Math.ceil(userCount / 2);
 
-      if (votes >= required) {
-        return distube.skip(message);
-      } else {
-        message.channel.send('Voto adicionado');
-      }
+      // if (votes >= required) {
+      //   return distube.skip(message);
+      // } else {
+      //   message.channel.send('Voto adicionado');
+      // }
     }
 
     if (command === 'volume') {
