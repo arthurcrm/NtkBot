@@ -85,10 +85,9 @@ client.on(
       giphy.random(
         {
           tag: `${messageForGifSearch}`,
-          rating: 'g',
+          rating: 'r',
         },
         async (err, res) => {
-         
           try {
             console.log(res.data);
             await message.reply('Toma ai animal', {
@@ -129,20 +128,13 @@ client.on(
     if (command === 'play') distube.play(message, args.join(' '));
 
     if (command === 'skip') {
+      const userCount = message.member.voice.channel.members.size;
+
       if (message.member.voice.channel !== message.guild.me.voice.channel)
         return message.channel.send(
           'Voce nao ta no mesmo canal de voz do bot de musica.',
         );
-
-      // const userCount = message.member.voice.channel.members.size;
-
-      // let required = Math.ceil(userCount / 2);
-
-      // if (votes >= required) {
-      distube.skip(message);
-      // } else {
-      //   message.channel.send('Voto adicionado');
-      // }
+      distube.skip('Musica foi skipada.');
     }
 
     if (command === 'volume') {
@@ -157,7 +149,7 @@ client.on(
       message.channel.send('Parei essa porra!');
     }
 
-    if (command === 'queue') {
+    if (command === 'fila') {
       let queue = distube.getQueue(message);
       message.channel.send(
         'Fila atual:\n' +

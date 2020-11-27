@@ -1,8 +1,8 @@
 {
-  "name": "discordServer",
+  "name": "NtkBot",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/NtkArt/discordServer.git",
+  "repository": "https://github.com/NtkArt/NtkBot",
   "author": "Arthur Carneiro <arthur.carneirontk@gmail.com>",
   "license": "MIT",
   "scripts": {
