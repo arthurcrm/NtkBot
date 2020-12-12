@@ -127,6 +127,7 @@ client.on(
 
     if (command === 'play') distube.play(message, args.join(' '));
 
+    
     if (command === 'skip') {
       const userCount = message.member.voice.channel.members.size;
 
